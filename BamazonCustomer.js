@@ -51,7 +51,7 @@ function customerBuy() {
             if (err) throw err;
             if (data.length === 0) {
 				console.log('ERROR: Invalid ID. Please select a valid ID.');
-				showInventory();
+				showStockroom();
 
 			} else {
 				var productData = data[0];
@@ -74,7 +74,7 @@ function customerBuy() {
 					console.log('Please adjust your order.');
 					console.log("\n---------------------------------------------------------------------\n");
 
-					showInventory();
+					showStockroom();
 				}
 			}
 		})
@@ -83,7 +83,7 @@ function customerBuy() {
 
 
 
-function showInventory() {
+function showStockroom() {
 	queryStr = 'SELECT * FROM products';
 	connection.query(queryStr, function(err, data) {
 		if (err) throw err;
@@ -105,7 +105,7 @@ function showInventory() {
 	  	console.log("---------------------------------------------------------------------\n");
 	  	customerBuy();
 	})
-}function bamazon() {
-    showInventory();
+}function bamazonStore() {
+    showStockroom();
 }
-bamazon();    
+bamazonStore();    
